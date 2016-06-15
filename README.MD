@@ -8,7 +8,7 @@ React 기초를 배우면서 사용 되는 프로젝트 입니다.
 
 ```
 npm install -g webpack webpack-dev-server
-npm instsall
+npm install
 ```
 
 ## How to run the server
