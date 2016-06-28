@@ -13,6 +13,7 @@ React CodeLab 에서 작업환경 설정을 할 때 사용 된 코드 입니다.
 ## 설치하기
 
 ```
+git@github.com:velopert/react-codelab-fundamentals.git
 npm install -g webpack webpack-dev-server
 npm install
 ```
