@@ -1,13 +1,8 @@
-# CodeLab-React-Fundamentals
+# CodeLab-React-Fundamentals: Redux Counter
 
 ## About
 
-React 기본 작업 환경
-- babel 을 통한 ES6 변환
-- webpack-dev-server 사용
-- react-hot-loader 를 통한 Hot Module Reload 사용
-
-React CodeLab 에서 작업환경 설정을 할 때 사용 된 코드 입니다.
+React CodeLab 에서 Redux 공부를 하면서 사용 된 예제입니다.
 
 
 ## 설치하기
