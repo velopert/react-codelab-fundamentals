@@ -9,6 +9,7 @@ React 예제 프로젝트 2 -Counter
 
 ```
 npm install -g webpack webpack-dev-server
+git checkout counter
 npm install
 ```
 
