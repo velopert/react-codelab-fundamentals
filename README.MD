@@ -2,8 +2,8 @@
 
 ## About
 
-React CodeLab 에서 Redux 공부를 하면서 사용 된 예제입니다.
-
+React 예제 프로젝트 2 -Counter
+- Redux 를 사용한 카운터
 
 ## 설치하기
 
