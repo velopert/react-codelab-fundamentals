@@ -8,6 +8,7 @@ React 예제 프로젝트 2 -Counter
 ## 설치하기
 
 ```
+git clone git@github.com:velopert/react-codelab-fundamentals.git
 npm install -g webpack webpack-dev-server
 git checkout counter
 npm install
