@@ -4,7 +4,7 @@ module.exports = {
     entry: './src/index.js',
 
     output: {
-        path: __dirname + '/public/',
+        path: '/',
         filename: 'bundle.js'
     },
 
@@ -22,9 +22,9 @@ module.exports = {
                 test: /\.js$/,
                 loaders: ['react-hot', 'babel?' + JSON.stringify({
                     cacheDirectory: true,
-                    presets: ['es2015', 'react']
+                    presets: ['es2015', 'stage-0', 'react']
                 })],
-                exclude: /node_modules/,
+                exclude: /node_modules/
             }
         ]
     },
