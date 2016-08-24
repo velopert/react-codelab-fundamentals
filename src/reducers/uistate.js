@@ -1,17 +1,19 @@
 import { TOGGLE_CONTROL_VISIBILITY } from 'actions/ActionTypes';
 
-export default function(state, action) {
+const initialState = {
+    visibility: true
+};
+
+export default function uistate(state, action) {
     if(typeof state === 'undefined') {
-        state = {
-            visibility: true
-        };
+        state = initialState;
     }
 
     switch(action.type) {
         case TOGGLE_CONTROL_VISIBILITY:
-            return Object.assign({}, state, {
+            return {
                 visibility: !state.visibility
-            });
+            };
         default:
             return state;
     }
