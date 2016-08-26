@@ -8,11 +8,16 @@ import { connect } from 'react-redux';
 
 class App extends React.Component {
     render(){
-
         return (
                 <div>
-                    <Counter/>
-                    <Controls/>
+                    <Counter value={this.props.value}/>
+                    <Controls
+                        config={this.props.config}
+                        onSetDiff={this.props.onSetDiff}
+                        onIncrease={this.props.onIncrease}
+                        onDecrease={this.props.onDecrease}
+                        onToggleVisibility={this.props.onToggleVisibility}
+                    />
                 </div>
         );
     }

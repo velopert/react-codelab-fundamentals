@@ -22,7 +22,7 @@ export default function reducer(state, action) {
             return {
                 ...state,
                 uistate: {
-                    visibiliy: !state.uistate.visibility
+                    visibility: !state.uistate.visibility
                 }
             };
         case types.SET_DIFF:
