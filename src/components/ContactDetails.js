@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default class ContactDetails extends React.Component {
+
     render() {
 
         // 선택되었을 때 보여질 부분
@@ -26,6 +27,7 @@ export default class ContactDetails extends React.Component {
                 { this.props.isSelected ? details : blank }
 
                 <p>
+                    <button>Edit</button>
                     <button onClick={this.props.onRemove}>Remove</button>
                 </p>
              </div>
