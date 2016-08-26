@@ -24,6 +24,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state.uistate.visibility);
     return {
         value: state.counter.value,
         config: {
@@ -41,6 +42,7 @@ const mapDispatchToProps = (dispatch) => {
         onToggleVisibility: () => dispatch(actions.toggleControlVisibility())
     };
 };
+
 
 
 
