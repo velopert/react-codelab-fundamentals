@@ -9,6 +9,9 @@ export default class ContactDetails extends React.Component {
             <div>
                 <p>{ this.props.contact.name }</p>
                 <p>{ this.props.contact.phone }</p>
+                <p>
+                    <button>Edit</button>
+                </p>
             </div>
         );
 
@@ -25,11 +28,6 @@ export default class ContactDetails extends React.Component {
                     ternary expression condition ? true : false */ }
 
                 { this.props.isSelected ? details : blank }
-
-                <p>
-                    <button>Edit</button>
-                    <button onClick={this.props.onRemove}>Remove</button>
-                </p>
              </div>
         );
     }
