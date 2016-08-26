@@ -1,10 +1,14 @@
 import React from 'react';
-
+import Counter from './Counter';
+import Controls from './Controls';
 class App extends React.Component {
     render(){
 
         return (
-                <h1>Hello React Skeleton</h1>
+                <div>
+                    <Counter/>
+                    <Controls/>
+                </div>
         );
     }
 }
