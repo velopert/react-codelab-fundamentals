@@ -59,8 +59,6 @@ export default class Contact extends React.Component {
 
 
     handleRemove() {
-        if(this.state.selectedKey === -1) return;
-
         this.setState({
             contactData: update(
                 this.state.contactData,

@@ -10,7 +10,7 @@ export default class ContactDetails extends React.Component {
                 <p>{ this.props.contact.name }</p>
                 <p>{ this.props.contact.phone }</p>
                 <p>
-                    <button>Edit</button>
+                    <button onClick={this.props.onRemove}>Remove</button>
                 </p>
             </div>
         );
