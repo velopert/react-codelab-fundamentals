@@ -1,20 +1,27 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { Component, PropTypes } from 'react';
+
+const propTypes = {
+    value: PropTypes.number
+};
+
+const defaultProps = {
+    value: 0
+};
 
 class Counter extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
-        return (
-            <div>
-                <h1>{ JSON.stringify(this.props.value) }</h1>
-            </div>
+        return(
+            <h1>{this.props.value}</h1>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        value: state.counter.value
-    };
-};
+Counter.propTypes = propTypes;
+Counter.defaultProps = defaultProps;
 
-export default connect(mapStateToProps)(Counter);
+export default Counter;
