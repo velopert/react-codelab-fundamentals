@@ -1,6 +1,7 @@
 import React from 'react';
 import ContactInfo from './ContactInfo';
 import ContactDetails from './ContactDetails';
+import update from 'react-addons-update';
 
 
 export default class Contact extends React.Component {
@@ -26,6 +27,8 @@ export default class Contact extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+
     }
 
     handleChange(e) {
