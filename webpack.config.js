@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: ['react-hot-loader/patch', './src/index.js'] ,
 
     output: {
         path: __dirname + '/public/',
