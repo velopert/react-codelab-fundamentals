@@ -12,16 +12,21 @@ export default class Contact extends React.Component {
         this.state = {
             selectedKey: -1,
             keyword: '',
+            nextId: 4,
             contactData: [{
+                id: 0,
                 name: 'Abet',
                 phone: '010-0000-0001'
             }, {
+                id: 1,
                 name: 'Betty',
                 phone: '010-0000-0002'
             }, {
+                id: 2,
                 name: 'Charlie',
                 phone: '010-0000-0003'
             }, {
+                id: 3,
                 name: 'David',
                 phone: '010-0000-0004'
             }]
@@ -37,11 +42,13 @@ export default class Contact extends React.Component {
     }
 
     componentWillMount() {
-        const contactData = localStorage.contactData;
+        const contactData = localStorage.contactData;   
+        const nextId = localStorage.nextId;
 
         if(contactData) {
             this.setState({
-                contactData: JSON.parse(contactData)
+                contactData: JSON.parse(contactData),
+                nextId
             })
         }
     }
@@ -49,6 +56,10 @@ export default class Contact extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         if(JSON.stringify(prevState.contactData) != JSON.stringify(this.state.contactData)) {
             localStorage.contactData = JSON.stringify(this.state.contactData);
+        }
+
+        if(prevState.nextId !== this.state.nextId){
+            localStorage.nextId = this.state.nextId;
         }
     }
 
@@ -59,30 +70,33 @@ export default class Contact extends React.Component {
         });
     }
 
-    handleClick(key) {
+    handleClick(id) {
         this.setState({
-            selectedKey: key
+            selectedId: id
         });
 
-        console.log(key, 'is selected');
+        console.log(id, 'is selected');
     }
 
     handleCreate(contact) {
+        contact.id = this.state.nextId;
+
         this.setState({
-            contactData: update(this.state.contactData, { $push: [contact] })
+            contactData: update(this.state.contactData, { $push: [contact] }),
+            nextId: this.state.nextId + 1
         });
     }
 
     handleRemove() {
-        if(this.state.selectedKey < 0) {
+        if(this.state.selectedId < 0) {
             return;
         }
 
         this.setState({
             contactData: update(this.state.contactData,
-                { $splice: [[this.state.selectedKey, 1]] }
+                { $splice: [[this.state.selectedId, 1]] }
             ),
-            selectedKey: -1
+            selectedId: -1
         });
     }
 
@@ -90,7 +104,7 @@ export default class Contact extends React.Component {
         this.setState({
             contactData: update(this.state.contactData,
                 {
-                    [this.state.selectedKey]: {
+                    [this.state.selectedId]: {
                         name: { $set: name },
                         phone: { $set: phone }
                     }
@@ -101,7 +115,7 @@ export default class Contact extends React.Component {
 
     render() {
         const mapToComponents = (data) => {
-            data.sort();
+            data = data.slice().sort((a,b) => a.name > b.name);
             data = data.filter(
                 (contact) => {
                     return contact.name.toLowerCase()
@@ -112,7 +126,7 @@ export default class Contact extends React.Component {
                 return (<ContactInfo
                             contact={contact}
                             key={i}
-                            onClick={() => this.handleClick(i)}/>);
+                            onClick={() => this.handleClick(contact.id)}/>);
             });
         };
 
@@ -127,8 +141,8 @@ export default class Contact extends React.Component {
                 />
                 <div>{mapToComponents(this.state.contactData)}</div>
                 <ContactDetails
-                    isSelected={this.state.selectedKey != -1}
-                    contact={this.state.contactData[this.state.selectedKey]}
+                    isSelected={this.state.selectedId != -1}
+                    contact={this.state.contactData[this.state.selectedId]}
                     onRemove={this.handleRemove}
                     onEdit={this.handleEdit}
                 />
